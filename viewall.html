@@ -18,6 +18,8 @@
     <ol class="breadcrumb">
         <li class="breadcrumb-item active">Viewall</li>
     </ol>
+    <div class="row mb-2">
+        <div class="col-sm mb-2">
     <!-- Button trigger modal -->
     <button type="button" class="btn btn-primary mb-1 mt-1" data-toggle="modal" data-target="#exampleModal" id="addbtn">
   Add Employee
@@ -86,6 +88,8 @@
                                  <option value="ISE">ISE</option>
                                  <option value="CSE">CSE</option>
                                     <option value="ECE">ECE</option>
+                                    <option value="CIVIL">CIVIL</option>
+                <option value="MECH">MECH</option>
                                 </select>
                             </div>
                              <div class="col">
@@ -106,6 +110,28 @@
             </div>
         </div>
     </div>
+    </div>
+    </div>
+    <div class="row mt-1 mb-4 no-gutters">
+        <div class="col-md-1"></div>
+        <div class="col-md-6 display-block">
+            <input type="text" class="form-control" id='searchtxt' placeholder="Enter text to search" />
+        </div>
+        <div class="col-md-2 ml-1">
+            <select type="text" class="form-control dropdown" id="dropdown" name="dropdown">
+                <option value="">Select Department</option>
+                <option value="ISE">ISE</option>
+                <option value="CSE">CSE</option>
+                <option value="ECE">ECE</option>
+                <option value="CIVIL">CIVIL</option>
+                <option value="MECH">MECH</option>
+                </select>
+        </div>
+        <div class="col-md-2 ml-1">
+            <button type="button" class="btn btn-primary" id="btnSearch">Search</button>
+        </div>
+    </div>
+    
     <div id="showcontent"></div>
 
 

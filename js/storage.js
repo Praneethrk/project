@@ -108,6 +108,8 @@ function getEmployeesFromLocalStorage() {
 function updateLocalStorageData(employees) {
     localStorage.setItem("employees", JSON.stringify(employees));
 }
+
+
 function dept_tsalary() {
     var employees = getEmployeesFromLocalStorage();
     var dept_t_sal = {};
@@ -163,3 +165,65 @@ function dept_qual_count_info(){
     console.log(emp_qual_count);
    return emp_qual_count;
 }
+
+
+function qual_count_function(){
+    var employees = getEmployeesFromLocalStorage();
+    var qual_count ={};
+    
+     employees.forEach(emp =>{
+         var count = qual_count[emp.qualification];
+         qual_count[emp.qualification] = count? count+1:1;
+     })
+    var qual_count_info=[];
+    for(key in qual_count){
+        var val= qual_count[key];
+        qual_count_info.push({"qual":key,"count":val});
+    }
+    return qual_count_info;
+}
+
+//Search operation
+
+function searchAndGetEmployee(searchStr, dName) {
+      if (searchStr == "" && dName == "") {
+          return getDataFromLocalStorage();
+      } else if (dName == "") {
+          return getEmployeeName(searchStr);
+      } else if (searchStr == "") {
+          return getEmployeeDept(dName);
+      } else {
+          return getEmployeeNameDept(searchStr, dName);
+      }
+  }
+//      Search by name
+  function getEmployeeName(searchStr) {
+      var employees = getEmployeesFromLocalStorage();
+      var a = [];
+      for (var i = 0; i < employees.length; i++) {
+          if (employees[i].name.indexOf(searchStr) != -1)
+              a.push(employees[i]);
+      }
+      return a;
+  }
+//        Search by department
+  function getEmployeeDept(dName) {
+      var employees = getEmployeesFromLocalStorage();
+      var a = [];
+      for (var i = 0; i < employees.length; i++) {
+          if (employees[i].dept === dName)
+              a.push(employees[i]);
+      }
+      return a;
+  }
+//          Search by name and department
+  function getEmployeeNameDept(searchStr, dName) {
+      var employees = getEmployeesFromLocalStorage();
+      var a = [];
+      for (var i = 0; i < employees.length; i++) {
+          if ((employees[i].name.indexOf(searchStr) != -1) && employees[i].dept === dName)
+              a.push(employees[i]);
+      }
+      return a;
+  }
+//End of Search operation

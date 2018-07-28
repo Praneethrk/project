@@ -96,6 +96,13 @@
          });
 
      });
+     
+     $("#btnSearch").click(function () {
+         var searchStr = $("#searchtxt").val();
+         var dName = $("#dropdown").val();
+         var employees = searchAndGetEmployee(searchStr, dName);
+         showTable(employees);
+     });
 
      function updateEmployee() {
          if (validateForm()) {
